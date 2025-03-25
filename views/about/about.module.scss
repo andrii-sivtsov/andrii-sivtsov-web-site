@@ -1,0 +1,11 @@
+@import '../../styles/mixins.scss';
+
+.container {
+	padding: em(20);
+	min-height: 100vh;
+}
+
+.main {
+	max-width: em(1200);
+	margin: 0 auto;
+}

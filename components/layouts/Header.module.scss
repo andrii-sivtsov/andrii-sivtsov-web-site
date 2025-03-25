@@ -1,0 +1,32 @@
+@import '../../styles/mixins.scss';
+
+.header {
+	position: absolute;
+	padding: em(10) 0;
+	left: 0;
+	width: 100%;
+	max-width: 100%;
+}
+
+.logo {
+	font-size: em(15);
+}
+
+.local-time {
+	grid-column: 2;
+	justify-self: end;
+	align-self: start;
+}
+
+.header_nav {
+	grid-column: 4;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: em(0);
+}
+
+.header-login {
+	justify-self: end;
+	align-self: start;
+}

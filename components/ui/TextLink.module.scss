@@ -1,0 +1,44 @@
+@import '../../styles/mixins.scss';
+
+.g-link {
+	position: relative;
+	display: inline-block;
+}
+
+.g-link::after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	bottom: 0;
+	display: inline-block;
+	width: 100%;
+	height: 1px;
+	background: var(--black);
+	transition: height 0.3s ease-in-out;
+}
+
+.g-link_text {
+	font-size: em(14);
+	transition: color 0.3s ease-in-out;
+}
+
+@media (hover: hover) {
+	.g-link:hover::after {
+		height: 100%;
+	}
+
+	.g-link:hover .g-link_text {
+		color: var(--white);
+	}
+}
+
+@media (hover: none) {
+	.g-link:active::after {
+		height: 100%;
+	}
+
+	.g-link:active .g-link_text {
+		color: var(--white);
+	}
+}

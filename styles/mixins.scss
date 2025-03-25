@@ -1,0 +1,13 @@
+// Function to convert pixels to em
+@function em($pixels, $context: 16) {
+	@return ($pixels / $context) * 1em;
+}
+
+// Mixin for responsive font-size
+@mixin responsive-font {
+	font-size: 1.1111111vw;
+
+	@media (max-width: 767px) {
+		font-size: 3.8888889vw;
+	}
+}

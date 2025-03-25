@@ -35,6 +35,11 @@ a {
 	cursor: pointer;
 }
 
+button {
+	all: unset;
+	cursor: pointer;
+}
+
 .main-wrapper {
 	overflow: hidden;
 }
@@ -84,4 +89,10 @@ h6 {
 
 .text-14px {
 	font-size: em(14);
+}
+
+.text-68px {
+	font-size: em(68);
+	line-height: 0.9;
+	font-weight: 600;
 }

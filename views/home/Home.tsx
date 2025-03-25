@@ -1,8 +1,9 @@
-import { clsx } from '@/lib/utils'
 import Header from '@/components/layouts/Header'
-import Head from 'next/head'
-import styles from './home.module.scss'
 import PageGrid from '@/components/layouts/PageGrid'
+import { clsx } from '@/lib/utils'
+import Head from 'next/head'
+import styles from '@/views/home/home.module.scss'
+import Tab from '@/components/ui/Tab'
 
 export default function Home() {
 	return (
@@ -35,7 +36,24 @@ export default function Home() {
 				<section className={styles['section_cases']}>
 					<div className='container'>
 						<PageGrid>
-							<div className={styles['cases_intro']}></div>
+							<div className={styles['cases_intro']}>
+								<div className={styles['cases_tabs']}>
+									<Tab
+										label='grid'
+										isActive={true}
+										onClick={() => console.log('Grid clicked')}
+									/>
+									<Tab
+										label='list'
+										isActive={false}
+										onClick={() => console.log('List clicked')}
+									/>
+								</div>
+								<div className={styles['cases_title']}>
+									<h2 className='text-68px'>Featured Projects</h2>
+									<span className='text-68px'>6</span>
+								</div>
+							</div>
 							<div className={styles['cases_list']}></div>
 						</PageGrid>
 					</div>

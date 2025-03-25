@@ -10,3 +10,29 @@
 	grid-column: 4 / 6;
 	align-self: end;
 }
+
+.cases_intro {
+	grid-column: 1 / 3;
+	display: flex;
+	flex-direction: column;
+	gap: em(50);
+}
+
+.cases_tabs {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	gap: em(8);
+	border-bottom: em(4) solid var(--black);
+}
+
+.cases_title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.cases_list {
+	grid-column: 4 / 6;
+}

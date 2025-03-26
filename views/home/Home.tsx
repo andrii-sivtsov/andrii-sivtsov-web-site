@@ -3,43 +3,13 @@ import PageGrid from '@/components/layouts/PageGrid'
 import GridListCard from '@/components/ui/GridListCard'
 import Tab from '@/components/ui/Tab'
 import styles from '@/views/home/home.module.scss'
-import gsap from 'gsap'
-import Flip from 'gsap/Flip'
 import Head from 'next/head'
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { projects } from '../../data/projects'
 import { clsx } from '../../lib/utils'
 
-gsap.registerPlugin(Flip)
-
 export default function Home() {
 	const [activeTab, setActiveTab] = useState<'grid' | 'list'>('grid')
-	const [pendingTab, setPendingTab] = useState<'grid' | 'list'>('grid')
-	const flipState = useRef<Flip.FlipState | null>(null)
-
-	// 📦 Сохраняем состояние до смены layout
-	const handleTabChange = (next: 'grid' | 'list') => {
-		flipState.current = Flip.getState(['.cases_list', '.project-card'])
-		setPendingTab(next)
-	}
-
-	// 🌀 Применяем Flip после DOM обновления
-	useLayoutEffect(() => {
-		if (!flipState.current) return
-
-		setActiveTab(pendingTab)
-
-		requestAnimationFrame(() => {
-			Flip.from(flipState.current!, {
-				duration: 0.6,
-				ease: 'power2.inOut',
-				stagger: 0.03,
-				absolute: true,
-				scale: true,
-			})
-			flipState.current = null
-		})
-	}, [pendingTab])
 
 	return (
 		<>
@@ -69,7 +39,9 @@ export default function Home() {
 					</div>
 				</section>
 
-				<section className={styles['section_cases']}>
+				<section
+					className={clsx(styles['section_cases'], 'section-margin-bottom')}
+				>
 					<div className='container'>
 						<PageGrid className={styles['cases_wrapper']}>
 							<div className={styles['cases_intro']}>
@@ -77,12 +49,12 @@ export default function Home() {
 									<Tab
 										label='grid'
 										isActive={activeTab === 'grid'}
-										onClick={() => handleTabChange('grid')}
+										onClick={() => setActiveTab('grid')}
 									/>
 									<Tab
 										label='list'
 										isActive={activeTab === 'list'}
-										onClick={() => handleTabChange('list')}
+										onClick={() => setActiveTab('list')}
 									/>
 								</div>
 								<div className={styles['cases_title']}>
@@ -93,7 +65,6 @@ export default function Home() {
 
 							<div
 								className={clsx(
-									'cases_list', // 👈 обязательно как обычный класс
 									styles['cases_list'],
 									activeTab === 'list' && styles['is--list']
 								)}

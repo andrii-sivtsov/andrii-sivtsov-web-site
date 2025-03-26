@@ -7,6 +7,10 @@
 	flex-direction: column;
 	gap: em(2);
 	text-transform: capitalize;
+
+	&:hover .tab_icon {
+		background-color: var(--black);
+	}
 }
 
 .tab_line-1,

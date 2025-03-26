@@ -49,7 +49,9 @@ export default function Tab({ label, isActive = false, onClick }: TabProps) {
 			{[1, 2, 3, 4].map((n, i) => (
 				<div
 					key={n}
-					ref={el => (lineRefs.current[i] = el)}
+					ref={(el: HTMLDivElement | null) => {
+						lineRefs.current[i] = el
+					}}
 					className={styles[`tab_line-${n}`]}
 				/>
 			))}

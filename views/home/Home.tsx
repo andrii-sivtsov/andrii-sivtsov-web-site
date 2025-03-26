@@ -3,13 +3,51 @@ import PageGrid from '@/components/layouts/PageGrid'
 import GridListCard from '@/components/ui/GridListCard'
 import Tab from '@/components/ui/Tab'
 import styles from '@/views/home/home.module.scss'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Head from 'next/head'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { projects } from '../../data/projects'
 import { clsx } from '../../lib/utils'
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function Home() {
 	const [activeTab, setActiveTab] = useState<'grid' | 'list'>('grid')
+
+	// Logos
+	const trackRef = useRef<HTMLDivElement>(null)
+	const trackReverseRef = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		if (!trackRef.current || !trackReverseRef.current) return
+
+		gsap.to(trackRef.current, {
+			yPercent: -100,
+			repeat: -1,
+			ease: 'linear',
+			duration: 10,
+			scrollTrigger: {
+				trigger: '#section-about',
+				start: 'top+=500 bottom',
+				end: 'bottom-=500 top',
+				toggleActions: 'play pause resume pause',
+			},
+		})
+
+		gsap.to(trackReverseRef.current, {
+			yPercent: 50,
+			repeat: -1,
+			ease: 'linear',
+			duration: 10,
+			scrollTrigger: {
+				trigger: '#section-about',
+				start: 'top+=500 bottom',
+				end: 'bottom-=500 top',
+				toggleActions: 'play pause resume pause',
+			},
+		})
+	}, [])
 
 	return (
 		<>
@@ -72,6 +110,85 @@ export default function Home() {
 								{projects.map((project, i) => (
 									<GridListCard key={i} {...project} view={activeTab} />
 								))}
+							</div>
+						</PageGrid>
+					</div>
+				</section>
+				<section id='section-about' className={styles['section_about']}>
+					<div className={styles['about_wrapper']}>
+						<div className='container'>
+							<PageGrid className={styles['about_top']}>
+								<div className={styles['about_title']}>
+									<h2 className='text-32px'>
+										My name is Andrii. I combine design and development skills.
+										My main goal is to help you communicate with your clients in
+										a clear and effective way, solve business challenges, and
+										design the web.
+									</h2>
+								</div>
+							</PageGrid>
+						</div>
+
+						<PageGrid className={styles['about_content']}>
+							<div className={styles['about_banner']}>
+								<div className={styles['about_banner-line-1']}></div>
+								<div className={styles['about_banner-line-2']}></div>
+								<div className={styles['about_banner-line-3']}></div>
+								<div className={styles['about_banner-line-4']}></div>
+								<div className={styles['about_banner-wrapper']}>
+									<h3 className='text-32px'>Clients</h3>
+									<div className={styles['about_banner-logos']}>
+										<div ref={trackRef} className={styles['about_logos-track']}>
+											<p>Integrica</p>
+											<p>Blue Pill</p>
+											<p>Telemetter</p>
+											<p>Gapsy Studio</p>
+											<p>Bruit Brothers</p>
+											<p>Integrica</p>
+											<p>UCO</p>
+											<p>Pokrovskaya 10</p>
+											<p>Ticket AG</p>
+											<p>CMM LLC</p>
+											<p>Integrica</p>
+											<p>Blue Pill</p>
+											<p>Telemetter</p>
+											<p>Gapsy Studio</p>
+											<p>Bruit Brothers</p>
+											<p>Integrica</p>
+											<p>UCO</p>
+											<p>Pokrovskaya 10</p>
+											<p>Ticket AG</p>
+											<p>CMM LLC</p>
+										</div>
+										<div className={styles['about_logos-track-reverse']}>
+											<div
+												ref={trackReverseRef}
+												className={styles['about_logos-track']}
+											>
+												<p>Looqme</p>
+												<p>Rili AI</p>
+												<p>Sea Portal</p>
+												<p>Nsads</p>
+												<p>Fashion Camp</p>
+												<p>Leaping AI</p>
+												<p>MIO ART</p>
+												<p>MeloFx</p>
+												<p>DAH</p>
+												<p>IN1 Holding Limited</p>
+												<p>Looqme</p>
+												<p>Rili AI</p>
+												<p>Sea Portal</p>
+												<p>Nsads</p>
+												<p>Fashion Camp</p>
+												<p>Leaping AI</p>
+												<p>MIO ART</p>
+												<p>MeloFx</p>
+												<p>DAH</p>
+												<p>IN1 Holding Limited</p>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</PageGrid>
 					</div>

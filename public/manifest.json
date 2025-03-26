@@ -1,0 +1,21 @@
+{
+	"name": "Andrii Sivtsov - Web Architect",
+	"short_name": "AS Portfolio",
+	"description": "Portfolio of Andrii Sivtsov — Web Architect specializing in Web Design, Visual AI Design, and Development.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#000000",
+	"icons": [
+		{
+			"src": "/icons/as-icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/icons/as-icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

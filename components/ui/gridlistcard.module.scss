@@ -1,0 +1,68 @@
+@import '../../styles/mixins.scss';
+
+.grid-list-card {
+	width: 100%;
+	display: flex;
+	position: relative;
+	flex-direction: column-reverse;
+	align-items: start;
+	justify-content: space-between;
+	gap: em(8);
+	aspect-ratio: 1/1;
+	color: var(--white);
+	padding: em(8);
+	transition: color 0.3s ease, background 0.3s ease;
+
+	&::after {
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: -1;
+		background-color: var(--black);
+		transition: height 0.3s ease-in-out;
+	}
+
+	&.is--list {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		aspect-ratio: auto;
+		color: var(--black);
+		padding: em(1) 0;
+	}
+
+	&.is--list::after {
+		height: 1px;
+	}
+
+	&.is--list .grid-list-card_services {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&.is--list .grid-list-card_content {
+		display: contents;
+	}
+
+	&.is--list > * {
+		flex: 1;
+	}
+
+	&.is--list p {
+		flex: 1;
+		width: 100%;
+	}
+}
+
+.grid-list-card_content {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}

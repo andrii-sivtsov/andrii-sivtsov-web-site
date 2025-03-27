@@ -35,7 +35,7 @@ export default function Home() {
 			scrollTrigger: {
 				trigger: '#section-about',
 				start: 'top+=500 bottom',
-				end: 'bottom-=500 top',
+				end: 'bottom+=500 top',
 				toggleActions: 'play pause resume pause',
 			},
 		})
@@ -48,7 +48,7 @@ export default function Home() {
 			scrollTrigger: {
 				trigger: '#section-about',
 				start: 'top+=500 bottom',
-				end: 'bottom-=500 top',
+				end: 'bottom+=500 top',
 				toggleActions: 'play pause resume pause',
 			},
 		})

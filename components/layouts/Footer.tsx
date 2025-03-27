@@ -75,7 +75,7 @@ export default function Footer() {
 				</PageGrid>
 				<PageGrid>
 					<div className={styles['footer_copyright']}>
-						<p className='text-14px'>©2025 Andrii Sivtdiv</p>
+						<p className='text-14px'>©2025 Andrii Sivtsov</p>
 						<div className={styles['footer_copyright-type']}>
 							<p className='text-14px'>Working Worldwide</p>
 						</div>

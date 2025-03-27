@@ -1,6 +1,7 @@
 import Footer from '@/components/layouts/Footer'
 import Header from '@/components/layouts/Header'
 import PageGrid from '@/components/layouts/PageGrid'
+import EnterBtn from '@/components/ui/btns/EnterBtn'
 import GridListCard from '@/components/ui/GridListCard'
 import ServiceCard from '@/components/ui/ServiceCard'
 import Tab from '@/components/ui/Tab'
@@ -252,6 +253,7 @@ export default function Home() {
 										<p>
 											Sign up for a free tour<br></br>of my personal process.
 										</p>
+										<EnterBtn text='Apply now' style='black' />
 									</div>
 								</div>
 							</PageGrid>

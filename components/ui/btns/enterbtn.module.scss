@@ -1,0 +1,94 @@
+@import '../../../styles/mixins.scss';
+
+.enter-btn {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	color: var(--btn-color-white);
+	transition: transform 0.3s ease, filter 0.3s ease;
+
+	.enter-btn_corner {
+		width: 41%;
+		height: em(9);
+		background-color: var(--btn-bg-black);
+		border-radius: em(4) em(6) 0 0;
+		margin-bottom: -1px;
+		position: relative;
+		z-index: 1;
+
+		&::after {
+			content: '';
+			width: em(4);
+			height: em(4);
+			position: absolute;
+			bottom: 1px;
+			left: 0;
+			transform: translateX(-90%);
+			background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='currentColor' d='M 0 100 Q 100 100, 100 0 L 100 100 L 0 100 Z'/%3E%3C/svg%3E")
+				no-repeat center;
+			background-size: cover;
+		}
+	}
+
+	.enter-btn_wrapper {
+		position: relative;
+		overflow: hidden;
+		z-index: 2;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: em(8);
+		background-color: var(--btn-bg-black);
+		color: var(--btn-color-white);
+		padding: em(12) em(14);
+		border-radius: em(6) em(0) em(6) em(6);
+		transition: background 0.3s ease, color 0.3s ease;
+	}
+
+	.enter-btn_text {
+		position: relative;
+		z-index: 2;
+		transition: transform 0.3s ease, opacity 0.3s ease;
+	}
+
+	.enter-btn_arrow {
+		width: em(30);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: margin 0.3s ease;
+
+		svg {
+			width: 100%;
+		}
+	}
+}
+
+@media (hover: hover) {
+	.enter-btn:hover {
+		transform: translateY(-2px);
+		filter: drop-shadow(em(4) em(4) em(4) rgba(0, 0, 0, 0.5));
+	}
+}
+
+// === Модификатор для белой кнопки ===
+
+.enter-btn--white {
+	color: var(--btn-color-black);
+
+	.enter-btn_corner {
+		background-color: var(--btn-bg-white);
+
+		&::after {
+			background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' d='M 0 100 Q 100 100, 100 0 L 100 100 L 0 100 Z'/%3E%3C/svg%3E")
+				no-repeat center;
+			background-size: cover;
+		}
+	}
+
+	.enter-btn_wrapper {
+		background-color: var(--btn-bg-white);
+		color: var(--btn-color-black);
+	}
+}

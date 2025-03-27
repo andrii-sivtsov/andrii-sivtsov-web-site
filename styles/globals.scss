@@ -6,6 +6,11 @@
 	--white: #fff;
 	--black: #090909;
 	--gray: #888888;
+	/* Buttons*/
+	--btn-bg-black: var(--black);
+	--btn-bg-white: var(--white);
+	--btn-color-black: var(--black);
+	--btn-color-white: var(--white);
 }
 
 * {

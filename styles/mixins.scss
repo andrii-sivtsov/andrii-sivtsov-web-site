@@ -11,3 +11,16 @@
 		font-size: 3.8888889vw;
 	}
 }
+
+@mixin line-after($height: em(4), $color: var(--black)) {
+	&::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: $height;
+		background-color: $color;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}

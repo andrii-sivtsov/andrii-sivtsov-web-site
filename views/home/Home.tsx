@@ -1,19 +1,23 @@
+import Footer from '@/components/layouts/Footer'
 import Header from '@/components/layouts/Header'
 import PageGrid from '@/components/layouts/PageGrid'
 import GridListCard from '@/components/ui/GridListCard'
+import ServiceCard from '@/components/ui/ServiceCard'
 import Tab from '@/components/ui/Tab'
-import styles from '@/views/home/home.module.scss'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Head from 'next/head'
 import { useEffect, useRef, useState } from 'react'
 import { projects } from '../../data/projects'
 import { clsx } from '../../lib/utils'
+import styles from './home.module.scss'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
 	const [activeTab, setActiveTab] = useState<'grid' | 'list'>('grid')
+
+	console.log('hero_bg class:', styles['hero_bg'])
 
 	// Logos
 	const trackRef = useRef<HTMLDivElement>(null)
@@ -63,9 +67,7 @@ export default function Home() {
 
 			<Header />
 			<main className='main-wrapper'>
-				<section
-					className={clsx(styles['section_hero'], 'section-margin-bottom')}
-				>
+				<section className={'section-margin-bottom'}>
 					<div className='container'>
 						<PageGrid className={styles['hero_wrapper']}>
 							<div className={styles['hero_content']}>
@@ -75,6 +77,7 @@ export default function Home() {
 							</div>
 						</PageGrid>
 					</div>
+					<div className={styles['hero_bg']}></div>
 				</section>
 
 				<section
@@ -114,7 +117,7 @@ export default function Home() {
 						</PageGrid>
 					</div>
 				</section>
-				<section id='section-about' className={styles['section_about']}>
+				<section id='section-about' className='section-margin-bottom'>
 					<div className={styles['about_wrapper']}>
 						<div className='container'>
 							<PageGrid className={styles['about_top']}>
@@ -193,7 +196,86 @@ export default function Home() {
 						</PageGrid>
 					</div>
 				</section>
+				<section
+					className={clsx(styles['section_services'], 'section-margin-bottom')}
+				>
+					<div className='container'>
+						<PageGrid className={styles['services_wrapper']}>
+							<div className={styles['services_info']}>
+								<h2 className='text-68px'>Primary Services</h2>
+								<span className='text-68px'>3</span>
+							</div>
+							<div className={styles['services_list']}>
+								<ServiceCard
+									title='Design'
+									services={[
+										'UX/UI',
+										'Web Design',
+										'Ai Graphic Design',
+										'Animations',
+									]}
+								/>
+								<ServiceCard
+									title='Development'
+									services={['Webflow', 'Custom Code', '3D', 'Animations']}
+								/>
+								<ServiceCard
+									title='Consulting'
+									services={['Design', 'Webflow', 'Animations (Gsap)']}
+								/>
+							</div>
+						</PageGrid>
+					</div>
+				</section>
+				<section
+					className={clsx(styles['section_process'], 'section-margin-bottom')}
+				>
+					<div className='container'>
+						<div className={styles['process_wrapper']}>
+							<PageGrid>
+								<div className={styles['process_title']}>
+									<p className='text-32px'>
+										I take an individual approach to each project, helping
+										clients convey their story in the digital space. To ensure
+										maximum transparency and seamless collaboration, I use my
+										own workflow system. Each client gets access to a personal
+										account, where they can track the project’s progress at any
+										time and receive all necessary files and documents.
+									</p>
+								</div>
+								<div className={styles['process_banner']}>
+									<div className={styles['process_banner-line-1']}></div>
+									<div className={styles['process_banner-line-2']}></div>
+									<div className={styles['process_banner-line-3']}></div>
+									<div className={styles['process_banner-line-4']}></div>
+									<div className={styles['process_banner-wrapper']}>
+										<p>
+											Sign up for a free tour<br></br>of my personal process.
+										</p>
+									</div>
+								</div>
+							</PageGrid>
+							<PageGrid>
+								<div className={styles['process_table']}>
+									<div className={styles['process_table-cel']}>
+										<p>Transparency</p>
+									</div>
+									<div className={styles['process_table-cel']}>
+										<p>Centralized access </p>
+									</div>
+									<div className={styles['process_table-cel']}>
+										<p>Security</p>
+									</div>
+									<div className={styles['process_table-cel']}>
+										<p>Flexibility and control</p>
+									</div>
+								</div>
+							</PageGrid>
+						</div>
+					</div>
+				</section>
 			</main>
+			<Footer />
 		</>
 	)
 }

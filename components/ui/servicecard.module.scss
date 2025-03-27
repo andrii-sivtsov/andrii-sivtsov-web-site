@@ -1,0 +1,52 @@
+@import '../../styles/mixins.scss';
+
+.service-card {
+	width: 100%;
+	height: em(400);
+	background-color: var(--black);
+	color: var(--white);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+	padding: em(8);
+	position: relative;
+}
+
+.service-card_top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: start;
+	position: relative;
+	z-index: 2;
+}
+
+.service-card_content {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	z-index: 1;
+	transform: translateX(-50%);
+	bottom: 0;
+	width: 53%;
+	height: 100%;
+	background-color: #1b1b1b;
+}
+
+.service-card_bot {
+	position: relative;
+	z-index: 3;
+}
+
+.service-card_icon {
+	width: em(20);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+
+	svg {
+		width: 100%;
+	}
+}

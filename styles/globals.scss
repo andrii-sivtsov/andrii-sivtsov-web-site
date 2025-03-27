@@ -40,6 +40,12 @@ button {
 	cursor: pointer;
 }
 
+input {
+	all: unset; // убирает ВСЕ стили, включая рамки, фон, шрифт и т.д.
+	box-sizing: border-box;
+	width: 100%;
+}
+
 .main-wrapper {
 }
 
@@ -54,7 +60,7 @@ button {
 	max-width: 100%;
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
-	gap: em(8);
+	grid-gap: em(8);
 }
 
 /* Blocks spacing */
@@ -77,6 +83,17 @@ h6 {
 	font-size: inherit;
 	line-height: inherit;
 	color: inherit;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+li {
+	margin: 0;
+	padding: 0;
 }
 
 .text-32px {

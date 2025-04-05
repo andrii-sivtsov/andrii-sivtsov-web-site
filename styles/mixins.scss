@@ -1,6 +1,7 @@
-// Function to convert pixels to em
+@use 'sass:math';
+
 @function em($pixels, $context: 16) {
-	@return ($pixels / $context) * 1em;
+	@return math.div($pixels, $context) * 1em;
 }
 
 // Mixin for responsive font-size
@@ -8,7 +9,7 @@
 	font-size: 1.1111111vw;
 
 	@media (max-width: 767px) {
-		font-size: 3.8888889vw;
+		font-size: 4.4444444vw;
 	}
 }
 

@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss' as *;
 
 .enter-btn {
 	display: flex;
@@ -15,6 +15,10 @@
 		margin-bottom: -1px;
 		position: relative;
 		z-index: 1;
+
+		@media (max-width: 767px) {
+			width: 58%;
+		}
 
 		&::after {
 			content: '';
@@ -44,12 +48,20 @@
 		padding: em(12) em(14);
 		border-radius: em(6) em(0) em(6) em(6);
 		transition: background 0.3s ease, color 0.3s ease;
+
+		@media (max-width: 767px) {
+			padding: em(11) em(14);
+		}
 	}
 
 	.enter-btn_text {
 		position: relative;
 		z-index: 2;
 		transition: transform 0.3s ease, opacity 0.3s ease;
+
+		@media (max-width: 767px) {
+			font-size: em(12);
+		}
 	}
 
 	.enter-btn_arrow {

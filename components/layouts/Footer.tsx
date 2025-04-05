@@ -73,7 +73,7 @@ export default function Footer() {
 						<NewsForm />
 					</div>
 				</PageGrid>
-				<PageGrid>
+				<PageGrid className={styles['footer_bottom']}>
 					<div className={styles['footer_copyright']}>
 						<p className='text-14px'>©2025 Andrii Sivtsov</p>
 						<div className={styles['footer_copyright-type']}>

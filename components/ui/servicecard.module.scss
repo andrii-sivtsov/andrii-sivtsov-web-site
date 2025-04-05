@@ -1,4 +1,4 @@
-@import '../../styles/mixins.scss';
+@use '../../styles/mixins.scss' as *;
 
 .service-card {
 	width: 100%;
@@ -31,7 +31,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	align-items: start;
+	align-items: flex-start;
 	position: relative;
 	z-index: 2;
 }
@@ -48,6 +48,15 @@
 	background-color: #1b1b1b;
 	opacity: 0;
 	transition: opacity 0.2s ease-in-out;
+
+	@media (max-width: 767px) {
+		width: 100%;
+		height: em(244);
+		opacity: 1;
+		left: 0;
+		top: em(56);
+		transform: translateX(0);
+	}
 }
 
 .service-card_bot {
@@ -55,6 +64,14 @@
 	opacity: 0;
 	transition: opacity 0.2s ease-in-out;
 	z-index: 3;
+
+	@media (max-width: 767px) {
+		opacity: 1;
+
+		& li {
+			font-size: em(14);
+		}
+	}
 }
 
 .service-card_icon {
@@ -68,5 +85,10 @@
 
 	svg {
 		width: 100%;
+	}
+
+	@media (max-width: 767px) {
+		opacity: 1;
+		width: em(25);
 	}
 }

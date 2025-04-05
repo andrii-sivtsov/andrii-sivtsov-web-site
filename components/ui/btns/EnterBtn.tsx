@@ -18,8 +18,7 @@ export default function EnterBtn({ text, style = 'black' }: EnterBtnProps) {
 			<div className={styles['enter-btn_wrapper']} data-text={text}>
 				<div className={styles['enter-btn_arrow']}>
 					<svg
-						width='30'
-						height='12'
+						width='100%'
 						viewBox='0 0 30 12'
 						fill='none'
 						xmlns='http://www.w3.org/2000/svg'

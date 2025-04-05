@@ -31,7 +31,7 @@ export default function Header() {
 	return (
 		<header className={styles.header}>
 			<div className='container'>
-				<PageGrid>
+				<PageGrid className={styles['header_wrapper']}>
 					<Link href='/' className={styles.logo}>
 						Andrii Sivtsov
 					</Link>
@@ -42,21 +42,24 @@ export default function Header() {
 						<span className={styles['local-time_text']}>{actualTime}</span>,
 						Local
 					</div>
-					<nav className={styles.header_nav}>
-						<TextLink href='/cases' text='Cases' />
-						<TextLink href='/about' text='About' />
-						<TextLink href='/contacts' text='Contacts' />
-						<TextLink href='#' text='Designer Diary' newTab />
-					</nav>
-					<div>
-						<TextLink
-							href='mailto:andriisivtsov@gmail.com'
-							text='hello@andriisivtsov.com'
-							newTab
-						/>
-					</div>
-					<div className={styles['header-login']}>
-						<TextLink href='#' text='Log in' dataElement='header-login' />
+
+					<div className={styles['header_menu']}>
+						<nav className={styles.header_nav}>
+							<TextLink href='/cases' text='Cases' />
+							<TextLink href='/about' text='About' />
+							<TextLink href='/contacts' text='Contacts' />
+							<TextLink href='#' text='Designer Diary' newTab />
+						</nav>
+						<div>
+							<TextLink
+								href='mailto:andriisivtsov@gmail.com'
+								text='hello@andriisivtsov.com'
+								newTab
+							/>
+						</div>
+						<div className={styles['header-login']}>
+							<TextLink href='#' text='Log in' dataElement='header-login' />
+						</div>
 					</div>
 				</PageGrid>
 			</div>

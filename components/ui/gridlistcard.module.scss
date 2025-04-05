@@ -1,11 +1,11 @@
-@import '../../styles/mixins.scss';
+@use '../../styles/mixins.scss' as *;
 
 .grid-list-card {
 	width: 100%;
 	display: flex;
 	position: relative;
 	flex-direction: column-reverse;
-	align-items: start;
+	align-items: flex-start;
 	justify-content: space-between;
 	gap: em(8);
 	aspect-ratio: 1/1;
@@ -97,6 +97,14 @@
 	z-index: 3;
 	opacity: 0;
 	transition: opacity 0.2s ease-in-out;
+
+	@media (max-width: 767px) {
+		opacity: 1;
+
+		& p {
+			font-size: em(14);
+		}
+	}
 }
 
 .grid-list-card_content {
@@ -108,4 +116,12 @@
 	z-index: 3;
 	opacity: 0;
 	transition: opacity 0.2s ease-in-out;
+
+	@media (max-width: 767px) {
+		opacity: 1;
+
+		& p {
+			font-size: em(14);
+		}
+	}
 }

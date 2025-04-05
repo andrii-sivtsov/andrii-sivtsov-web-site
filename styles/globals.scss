@@ -1,5 +1,5 @@
-@import './mixins.scss';
-@import './fonts.scss';
+@use './mixins.scss' as *;
+@forward './fonts.scss';
 
 :root {
 	/* Colors */
@@ -33,11 +33,12 @@
 html,
 body {
 	max-width: 100vw;
-	@include responsive-font;
 	font-family: 'Inter', sans-serif;
 	font-weight: 500;
 	line-height: 1.3;
 	letter-spacing: -0.01em;
+
+	@include responsive-font;
 }
 
 body {
@@ -77,12 +78,20 @@ input {
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
 	grid-gap: em(8);
+
+	@media (max-width: 767px) {
+		display: block;
+	}
 }
 
 /* Blocks spacing */
 
 .section-margin-bottom {
 	margin-bottom: em(160);
+
+	@media (max-width: 767px) {
+		margin-bottom: em(130);
+	}
 }
 
 .image-cover {
@@ -123,11 +132,15 @@ li {
 	line-height: 1.1;
 	font-weight: 500;
 	letter-spacing: -0.02em;
+
+	@media (max-width: 767px) {
+		font-size: em(25);
+	}
 }
 
 .text-14px {
 	font-size: em(14);
-	letter-spacing: 0;
+	letter-spacing: -0.01em;
 }
 
 .text-68px {
@@ -135,4 +148,8 @@ li {
 	line-height: 0.9;
 	font-weight: 600;
 	letter-spacing: 0;
+
+	@media (max-width: 767px) {
+		font-size: em(38);
+	}
 }

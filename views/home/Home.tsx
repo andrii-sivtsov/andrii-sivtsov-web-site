@@ -250,7 +250,9 @@ export default function Home() {
 					<div className='container'>
 						<PageGrid className={styles['services_wrapper']}>
 							<div className={styles['services_info']}>
-								<h2 className='text-68px'>Primary Services</h2>
+								<h2 className='text-68px'>
+									Primary<br></br> Services
+								</h2>
 								<span className='text-68px'>3</span>
 							</div>
 							<div className={styles['services_list']}>
@@ -280,7 +282,7 @@ export default function Home() {
 				>
 					<div className='container'>
 						<div className={styles['process_wrapper']}>
-							<PageGrid>
+							<PageGrid className={styles['process_top']}>
 								<div className={styles['process_title']}>
 									<p className='text-32px'>
 										I take an individual approach to each project, helping

@@ -1,20 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-	reactStrictMode: true,
-	reactStrictMode: true,
-	async headers() {
-		return [
-			{
-				source: '/_next/(.*)',
-				headers: [
-					{
-						key: 'Cache-Control',
-						value: 'no-store',
-					},
-				],
-			},
-		]
-	},
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', () => {
+		navigator.serviceWorker
+			.register('/sw.js')
+			.then(reg => {
+				console.log('ServiceWorker зарегистрирован:', reg.scope)
+			})
+			.catch(err => {
+				console.error('ServiceWorker не зарегистрирован:', err)
+			})
+	})
 }
-
-export default nextConfig

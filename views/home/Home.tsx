@@ -34,8 +34,6 @@ export default function Home() {
 
 	const [activeTab, setActiveTab] = useState<'grid' | 'list'>('grid')
 
-	console.log('hero_bg class:', styles['hero_bg'])
-
 	// Logos
 	const trackRef = useRef<HTMLDivElement>(null)
 	const trackReverseRef = useRef<HTMLDivElement>(null)

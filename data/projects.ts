@@ -1,32 +1,26 @@
 export const projects = [
 	{
-		title: 'BLUE PILL',
+		title: 'Blue Pill',
 		year: '2025',
 		services: ['Web Design', 'Development'],
+		cover: '/images/cases/blue-pill-cover.png',
 	},
 	{
-		title: 'Integrica',
-		year: '2025',
+		title: 'Bruit Brothers',
+		year: '2024',
 		services: ['Development'],
+		cover: '/images/cases/bruit-brothers-cover.png',
+	},
+	{
+		title: 'Fashion Camp',
+		year: '2024',
+		services: ['Web Design', 'Development'],
+		cover: '/images/cases/fashion-camp-cover.png',
 	},
 	{
 		title: 'Looqme',
 		year: '2024',
 		services: ['Web Design', 'Development'],
-	},
-	{
-		title: 'Bruit Brothers',
-		year: '2025',
-		services: ['Development'],
-	},
-	{
-		title: 'Bruit Brothers',
-		year: '2025',
-		services: ['Development'],
-	},
-	{
-		title: 'Bruit Brothers',
-		year: '2025',
-		services: ['Development'],
+		cover: '/images/cases/looqme-cover.png',
 	},
 ]

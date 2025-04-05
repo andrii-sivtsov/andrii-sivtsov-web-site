@@ -21,6 +21,6 @@ export const projects = [
 		title: 'Looqme',
 		year: '2024',
 		services: ['Web Design', 'Development'],
-		cover: '/images/cases/looqme-cover.png',
+		cover: '/images/cases/looqme-upd-cover.png',
 	},
 ]

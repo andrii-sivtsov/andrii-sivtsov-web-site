@@ -6,6 +6,17 @@
 	--white: #fff;
 	--black: #090909;
 	--gray: #888888;
+	/* Themes */
+	[data-theme='light'] {
+		--color-border: var(--white);
+		--color-text: var(--white);
+		--color-text-hover: var(--black);
+	}
+	[data-theme='dark'] {
+		--color-border: var(--black);
+		--color-text: var(--black);
+		--color-text-hover: var(--white);
+	}
 	/* Buttons*/
 	--btn-bg-black: var(--black);
 	--btn-bg-white: var(--white);

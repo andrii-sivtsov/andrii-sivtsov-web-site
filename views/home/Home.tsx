@@ -17,6 +17,21 @@ import styles from './home.module.scss'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
+	// Header Change Theme
+
+	useEffect(() => {
+		const body = document.body
+		if (!body) return
+
+		ScrollTrigger.create({
+			trigger: '#section-hero',
+			start: 'bottom-=80em top',
+			end: 'top bottom',
+			onEnter: () => body.setAttribute('data-theme', 'dark'),
+			onLeaveBack: () => body.setAttribute('data-theme', 'light'),
+		})
+	}, [])
+
 	const [activeTab, setActiveTab] = useState<'grid' | 'list'>('grid')
 
 	console.log('hero_bg class:', styles['hero_bg'])
@@ -64,17 +79,17 @@ export default function Home() {
 					content='Portfolio of Andrii Sivtsov — Web Architect specializing in Web Design, Visual AI Design, and Development.'
 				/>
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
-				<link rel='icon' href='/favicon.ico' />
+				<link rel='icon' href='/images/favicon.ico' />
 			</Head>
 
 			<Header />
 			<main className='main-wrapper'>
-				<section className={'section-margin-bottom'}>
+				<section className={'section-margin-bottom'} id='section-hero'>
 					<div className='container'>
 						<PageGrid className={styles['hero_wrapper']}>
 							<div className={styles['hero_content']}>
 								<h1 className='text-32px'>
-									Building web spaces. Andrii Sivtsov, Web Architect
+									Building web spaces.<br></br>Andrii Sivtsov, Web Architect
 								</h1>
 							</div>
 						</PageGrid>
@@ -88,10 +103,15 @@ export default function Home() {
 							priority
 						/>
 					</div>
+					<div
+						className={styles['cases-anchor']}
+						id='section-cases-anchor'
+					></div>
 				</section>
 
 				<section
 					className={clsx(styles['section_cases'], 'section-margin-bottom')}
+					id='section-cases'
 				>
 					<div className='container'>
 						<PageGrid className={styles['cases_wrapper']}>
@@ -100,12 +120,32 @@ export default function Home() {
 									<Tab
 										label='grid'
 										isActive={activeTab === 'grid'}
-										onClick={() => setActiveTab('grid')}
+										onClick={() => {
+											setActiveTab('grid') // или 'list'
+
+											const section = document.getElementById(
+												'section-cases-anchor'
+											)
+											section?.scrollIntoView({
+												behavior: 'smooth',
+												block: 'start',
+											})
+										}}
 									/>
 									<Tab
 										label='list'
 										isActive={activeTab === 'list'}
-										onClick={() => setActiveTab('list')}
+										onClick={() => {
+											setActiveTab('list')
+
+											const section = document.getElementById(
+												'section-cases-anchor'
+											)
+											section?.scrollIntoView({
+												behavior: 'smooth',
+												block: 'start',
+											})
+										}}
 									/>
 								</div>
 								<div className={styles['cases_title']}>

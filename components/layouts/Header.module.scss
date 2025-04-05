@@ -8,6 +8,7 @@
 	width: 100%;
 	max-width: 100%;
 	padding: em(10) 0;
+	color: var(--color-text);
 }
 
 .logo {
@@ -29,6 +30,6 @@
 }
 
 .header-login {
+	justify-self: 6;
 	justify-self: end;
-	align-self: start;
 }

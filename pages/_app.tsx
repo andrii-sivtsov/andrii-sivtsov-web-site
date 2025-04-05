@@ -9,10 +9,10 @@ export default function App({ Component, pageProps }: AppProps) {
 				navigator.serviceWorker
 					.register('/sw.js')
 					.then(reg => {
-						console.log('SW registered: ', reg.scope)
+						console.log('ServiceWorker зарегистрирован:', reg.scope)
 					})
 					.catch(err => {
-						console.error('SW registration failed: ', err)
+						console.error('ServiceWorker не зарегистрирован:', err)
 					})
 			})
 		}

@@ -8,6 +8,7 @@ import Tab from '@/components/ui/Tab'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Head from 'next/head'
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { projects } from '../../data/projects'
 import { clsx } from '../../lib/utils'
@@ -78,7 +79,15 @@ export default function Home() {
 							</div>
 						</PageGrid>
 					</div>
-					<div className={styles['hero_bg']}></div>
+					<div className={styles['hero_bg']}>
+						<Image
+							src='/images/hero-image-bg.png'
+							className='image-cover'
+							alt='Andrii Sivtsov'
+							fill
+							priority
+						/>
+					</div>
 				</section>
 
 				<section

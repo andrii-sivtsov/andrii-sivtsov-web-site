@@ -82,8 +82,11 @@ export default function Home() {
 
 			<Header />
 			<main className='main-wrapper'>
-				<section className={'section-margin-bottom'} id='section-hero'>
-					<div className='container'>
+				<section
+					className={clsx('section-margin-bottom', styles['section_hero'])}
+					id='section-hero'
+				>
+					<div className={clsx('container', styles['hero_container'])}>
 						<PageGrid className={styles['hero_wrapper']}>
 							<div className={styles['hero_content']}>
 								<h1 className='text-32px'>

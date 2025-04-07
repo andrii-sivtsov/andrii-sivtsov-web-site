@@ -95,6 +95,7 @@
 	gap: em(40);
 	padding: em(8);
 	background-color: var(--white);
+	margin: 0 auto;
 
 	@media (max-width: 767px) {
 		max-width: none;

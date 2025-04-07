@@ -29,7 +29,7 @@ export default function Header() {
 	}, [])
 
 	return (
-		<header className={styles.header}>
+		<header className={styles.header} data-theme='light'>
 			<div className='container'>
 				<PageGrid className={styles['header_wrapper']}>
 					<Link href='/' className={styles.logo}>

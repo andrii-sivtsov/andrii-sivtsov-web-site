@@ -8,7 +8,8 @@
 	width: 100%;
 	max-width: 100%;
 	padding: em(10) 0;
-	color: var(--color-text);
+	color: var(--white);
+	mix-blend-mode: difference;
 }
 
 .header_wrapper {

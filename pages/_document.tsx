@@ -14,7 +14,7 @@ export default function Document() {
 				<meta name='mobile-web-app-capable' content='yes' />
 				<meta name='application-name' content='AS Portfolio' />
 			</Head>
-			<body data-theme='light'>
+			<body data-theme='dark'>
 				<Main />
 				<NextScript />
 			</body>

@@ -1,6 +1,16 @@
 import { clsx } from '@/lib/utils'
 import { Elements } from '@/types/global'
+import { forwardRef } from 'react'
 
-export default function PageGrid({ children, className }: Elements) {
-	return <div className={clsx('page-grid', className)}>{children}</div>
-}
+const PageGrid = forwardRef<HTMLDivElement, Elements>(
+	({ children, className }, ref) => {
+		return (
+			<div ref={ref} className={clsx('page-grid', className)}>
+				{children}
+			</div>
+		)
+	}
+)
+
+PageGrid.displayName = 'PageGrid'
+export default PageGrid

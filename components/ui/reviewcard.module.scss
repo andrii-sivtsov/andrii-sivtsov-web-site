@@ -1,0 +1,52 @@
+@use '../../styles/mixins.scss' as *;
+
+.card {
+	position: relative;
+	color: var(--black);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: em(8);
+	padding: em(1) 0;
+	cursor: pointer;
+	transition: color 0.3s ease-in-out;
+
+	&::after {
+		content: '';
+		width: 100%;
+		height: 1px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: 1;
+		background-color: var(--black);
+		transition: height 0.3s ease-in-out;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			color: var(--white);
+		}
+
+		&:hover::after {
+			height: 100%;
+		}
+	}
+	@media (hover: none) {
+		&:active {
+			color: var(--white);
+		}
+
+		&:active::after {
+			height: 100%;
+		}
+	}
+}
+
+.card_cell {
+	flex: 1;
+	width: 100%;
+	max-width: 100%;
+	position: relative;
+	z-index: 2;
+}

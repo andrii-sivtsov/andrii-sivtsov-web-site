@@ -1,13 +1,13 @@
 import Footer from '@/components/layouts/Footer'
 import Header from '@/components/layouts/Header'
 import PageGrid from '@/components/layouts/PageGrid'
+import SeoHead from '@/components/meta/Head'
 import EnterBtn from '@/components/ui/btns/EnterBtn'
 import GridListCard from '@/components/ui/GridListCard'
 import ServiceCard from '@/components/ui/ServiceCard'
 import Tab from '@/components/ui/Tab'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { projects } from '../../data/projects'
@@ -17,21 +17,6 @@ import styles from './home.module.scss'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
-	// Header Change Theme
-
-	useEffect(() => {
-		const body = document.body
-		if (!body) return
-
-		ScrollTrigger.create({
-			trigger: '#section-hero',
-			start: 'bottom-=80em top',
-			end: 'top bottom',
-			onEnter: () => body.setAttribute('data-theme', 'dark'),
-			onLeaveBack: () => body.setAttribute('data-theme', 'light'),
-		})
-	}, [])
-
 	const [activeTab, setActiveTab] = useState<'grid' | 'list'>('grid')
 
 	// Logos
@@ -70,15 +55,10 @@ export default function Home() {
 
 	return (
 		<>
-			<Head>
-				<title>Andrii Sivtsov - Web Architect</title>
-				<meta
-					name='description'
-					content='Portfolio of Andrii Sivtsov — Web Architect specializing in Web Design, Visual AI Design, and Development.'
-				/>
-				<meta name='viewport' content='width=device-width, initial-scale=1' />
-				<link rel='icon' href='/images/favicon.ico' />
-			</Head>
+			<SeoHead
+				title='Andrii Sivtsov - Web Architect'
+				description='Portfolio of Andrii Sivtsov — Web Architect specializing in Web Design, Visual AI Design, and Development.'
+			/>
 
 			<Header />
 			<main className='main-wrapper'>

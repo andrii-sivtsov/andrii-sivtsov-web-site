@@ -2,7 +2,7 @@ export type Project = {
 	id: string
 	slug: string
 	created_at: string
-	cover_image: string
+	preview_image: string
 	year: number
 	project_name: string
 	description: string
@@ -15,4 +15,5 @@ export type Project = {
 	live_url: string
 	slides: string[] // массив ссылок на изображения
 	published_at: string // timestamp
+	type: string
 }

@@ -1,0 +1,53 @@
+@use '../../../styles/mixins.scss' as *;
+
+.btn {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: em(2);
+}
+
+.btn_line-01,
+.btn_line-02,
+.btn_line-03,
+.btn_line-04 {
+	width: 100%;
+	background-color: var(--white);
+}
+
+.btn_line-01 {
+	height: 1px;
+}
+.btn_line-02 {
+	height: em(2);
+}
+.btn_line-03 {
+	height: em(3);
+}
+.btn_line-04 {
+	height: em(4);
+}
+
+.btn_content {
+	padding: em(8) em(10) em(8) em(8);
+	background-color: var(--white);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+
+	@media (max-width: 767px) {
+		padding: em(8) em(8) em(8) em(10);
+
+		& p {
+			font-size: em(14);
+		}
+	}
+}
+
+.btn_icon {
+	width: em(16);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}

@@ -175,7 +175,7 @@ export default function Home({ projects, error }: HomeProps) {
 										project_name={project.project_name}
 										year={project.year}
 										services={project.services}
-										cover_image={project.cover_image}
+										preview_image={project.preview_image}
 										view={activeTab}
 									/>
 								))}

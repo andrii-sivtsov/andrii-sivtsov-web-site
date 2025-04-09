@@ -8,7 +8,7 @@ interface GridListCardProps {
 	project_name: string
 	year: number
 	services: string[]
-	cover_image: string
+	preview_image: string
 	view: 'grid' | 'list'
 }
 
@@ -17,7 +17,7 @@ const GridListCard: React.FC<GridListCardProps> = ({
 	project_name,
 	year,
 	services,
-	cover_image,
+	preview_image,
 	view,
 }) => {
 	return (
@@ -41,7 +41,7 @@ const GridListCard: React.FC<GridListCardProps> = ({
 				</div>
 				<div className={styles['grid-list-card_image']}>
 					<Image
-						src={cover_image}
+						src={preview_image}
 						className='image-cover'
 						alt={project_name}
 						fill

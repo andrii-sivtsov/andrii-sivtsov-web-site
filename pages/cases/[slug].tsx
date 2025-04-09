@@ -1,49 +1,51 @@
 import { supabase } from '@/lib/supabaseClient'
-import { Project } from '@/types/project' // Импортируем тип данных из файла project.ts
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { Project } from '@/types/project'
+import CasePage from '@/views/cases/Case'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
-const ProjectPage = () => {
-	const router = useRouter()
-	const { slug } = router.query // Извлекаем slug из URL
-	const [project, setProject] = useState<Project | null>(null) // Типизируем данные проекта
+export const getStaticPaths: GetStaticPaths = async () => {
+	const { data, error } = await supabase.from('projects').select('slug')
 
-	useEffect(() => {
-		// Если slug есть, выполняем запрос
-		if (slug) {
-			const fetchProjectData = async () => {
-				const { data, error } = await supabase
-					.from('projects')
-					.select('*')
-					.eq('slug', slug) // Фильтруем по slug
-					.single() // Получаем только один проект по slug
-
-				if (error) {
-					console.error(error)
-					return
-				}
-				setProject(data) // Сохраняем данные в состояние
-			}
-			fetchProjectData()
-		}
-	}, [slug]) // Срабатывает при изменении slug
-
-	if (!project) {
-		return <p>Loading...</p> // Пока проект загружается, показываем "Загрузка"
+	if (error) {
+		console.error(error)
+		return { paths: [], fallback: 'blocking' }
 	}
 
-	return (
-		<div>
-			<h1>{project.project_name}</h1>
-			<p>{project.description}</p>
-			<img src={project.cover_image} alt={project.project_name} />
-			{/* Здесь можно отобразить больше данных проекта */}
-			<p>Year: {project.year}</p>
-			<p>Client: {project.client}</p>
-			<p>Visibility: {project.visibility ? 'Visible' : 'Hidden'}</p>
-			{/* Можешь добавить другие данные по необходимости */}
-		</div>
-	)
+	const paths = data.map((project: { slug: string }) => ({
+		params: { slug: project.slug },
+	}))
+
+	return { paths, fallback: 'blocking' }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+	const { slug } = params || {}
+
+	const { data, error } = await supabase
+		.from('projects')
+		.select('*')
+		.eq('slug', slug)
+		.single()
+
+	if (error) {
+		console.error(error)
+		return { notFound: true }
+	}
+
+	return {
+		props: {
+			project: data,
+		},
+		revalidate: 60, // Optional: will regenerate the page after 60 seconds
+	}
+}
+
+const ProjectPage = ({ project }: { project: Project }) => {
+	if (!project) {
+		return <p>Loading...</p> // Loading state
+	}
+
+	return <CasePage project={project} />
 }
 
 export default ProjectPage

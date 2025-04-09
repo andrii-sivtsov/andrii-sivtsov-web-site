@@ -1,0 +1,141 @@
+@use '../../styles/mixins.scss' as *;
+
+.section_hero {
+	position: relative;
+	width: 100%;
+	height: 100dvh;
+	overflow: hidden;
+	background-color: #d9d9d9;
+}
+
+.hero_container {
+	height: 100%;
+}
+
+.hero_wrapper {
+	height: 100%;
+	padding: em(20) 0;
+
+	@media (max-width: 767px) {
+		padding: em(25) 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+}
+
+.hero_content {
+	grid-column: 4 / span 3;
+	align-self: flex-end;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: em(30);
+
+	@media (max-width: 767px) {
+		grid-column: auto;
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: flex-start;
+		align-items: flex-start;
+		align-self: flex-start;
+		gap: em(25);
+	}
+}
+
+.hero_btn {
+	position: relative;
+	width: 100%;
+	max-width: em(240);
+	left: em(10);
+
+	@media (max-width: 767px) {
+		max-width: em(176);
+		left: em(-10);
+	}
+}
+
+// About
+
+.section_about {
+	position: relative;
+}
+
+.about_wrapper {
+	grid-column: 4 / span 3;
+	display: flex;
+	flex-direction: column;
+	gap: em(50);
+
+	@media (max-width: 767px) {
+		grid-column: auto;
+		gap: em(35);
+	}
+}
+
+.about_title {
+	padding-top: em(34);
+	position: relative;
+	@include line-after();
+
+	@media (max-width: 767px) {
+		grid-column: auto;
+		padding-top: em(25);
+	}
+}
+
+.about_table {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+
+	@media (max-width: 767px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: em(25) em(8);
+	}
+}
+
+.about_cell {
+	flex: 1;
+	width: 100%;
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: em(4);
+}
+
+.about_cell-caption {
+	font-size: em(14);
+	letter-spacing: -0.01em;
+
+	@media (max-width: 767px) {
+		font-size: em(12);
+	}
+}
+
+.about_cell-text {
+	@media (max-width: 767px) {
+		font-size: em(14);
+	}
+}
+
+// CTA
+
+.cta_wrapper {
+	grid-column: 4 / span 3;
+	max-width: em(470);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: em(40);
+
+	@media (max-width: 767px) {
+		grid-column: auto;
+		max-width: none;
+		gap: em(35);
+	}
+}

@@ -6,17 +6,44 @@ import EnterBtn from '@/components/ui/btns/EnterBtn'
 import GridListCard from '@/components/ui/GridListCard'
 import ServiceCard from '@/components/ui/ServiceCard'
 import Tab from '@/components/ui/Tab'
+import { Project } from '@/types/project'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import { projects } from '../../data/projects'
 import { clsx } from '../../lib/utils'
 import styles from './home.module.scss'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function Home() {
+interface HomeProps {
+	projects: Project[] // Массив проектов
+	error: boolean // Флаг ошибки
+}
+
+export default function Home({ projects, error }: HomeProps) {
+	if (error) {
+		console.log(error)
+	}
+
+	const sortedProjects = projects.sort((a, b) => {
+		const dateA = new Date(a.created_at) // Преобразуем строку в объект Date
+		const dateB = new Date(b.created_at)
+
+		// Сначала сортируем по году
+		if (dateA.getFullYear() !== dateB.getFullYear()) {
+			return dateB.getFullYear() - dateA.getFullYear()
+		}
+
+		// Затем по месяцу
+		if (dateA.getMonth() !== dateB.getMonth()) {
+			return dateB.getMonth() - dateA.getMonth()
+		}
+
+		// И затем по дню
+		return dateB.getDate() - dateA.getDate()
+	})
+
 	const [activeTab, setActiveTab] = useState<'grid' | 'list'>('grid')
 
 	// Logos
@@ -141,8 +168,16 @@ export default function Home() {
 									activeTab === 'list' && styles['is--list']
 								)}
 							>
-								{projects.map((project, i) => (
-									<GridListCard key={i} {...project} view={activeTab} />
+								{sortedProjects.map(project => (
+									<GridListCard
+										key={project.id}
+										slug={project.slug}
+										project_name={project.project_name}
+										year={project.year}
+										services={project.services}
+										cover_image={project.cover_image}
+										view={activeTab}
+									/>
 								))}
 							</div>
 						</PageGrid>

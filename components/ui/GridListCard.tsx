@@ -4,22 +4,22 @@ import Link from 'next/link'
 import styles from './gridlistcard.module.scss'
 
 interface GridListCardProps {
-	title: string
 	slug: string
-	year: string
+	project_name: string
+	year: number
 	services: string[]
-	cover: string
+	cover_image: string
 	view: 'grid' | 'list'
 }
 
-export default function GridListCard({
-	title,
+const GridListCard: React.FC<GridListCardProps> = ({
 	slug,
+	project_name,
 	year,
 	services,
-	cover,
+	cover_image,
 	view,
-}: GridListCardProps) {
+}) => {
 	return (
 		<Link href={`/cases/${slug}`} className={styles['grid-list-card_link']}>
 			<article
@@ -30,7 +30,7 @@ export default function GridListCard({
 				)}
 			>
 				<div className={styles['grid-list-card_content']}>
-					<p>{title}</p>
+					<p>{project_name}</p>
 					<p>{year}</p>
 				</div>
 
@@ -41,9 +41,9 @@ export default function GridListCard({
 				</div>
 				<div className={styles['grid-list-card_image']}>
 					<Image
-						src={cover}
+						src={cover_image}
 						className='image-cover'
-						alt='title'
+						alt={project_name}
 						fill
 						sizes='(min-width: 1440px) 26vw, 100vw'
 					/>
@@ -52,3 +52,5 @@ export default function GridListCard({
 		</Link>
 	)
 }
+
+export default GridListCard

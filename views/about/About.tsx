@@ -19,18 +19,35 @@ export default function About() {
 	useEffect(() => {
 		if (!wrapperRef.current || !maskRef.current || !titleRef.current) return
 
-		// Маска с clip-path (идёт по скроллу)
-		gsap.to(maskRef.current, {
-			clipPath: 'inset(0% 0% 0 -110%)',
-			scrollTrigger: {
-				trigger: wrapperRef.current,
-				start: 'top top',
-				end: 'bottom bottom',
-				scrub: 1,
-			},
+		const mm = gsap.matchMedia()
+
+		// mobile
+		mm.add('(max-width: 767px)', () => {
+			gsap.to(maskRef.current, {
+				clipPath: 'inset(0% -110% 0% -110%)',
+				scrollTrigger: {
+					trigger: wrapperRef.current,
+					start: 'top top',
+					end: 'bottom bottom',
+					scrub: 1,
+				},
+			})
 		})
 
-		// Отдельная анимация появления текста в самом конце
+		// desktop
+		mm.add('(min-width: 768px)', () => {
+			gsap.to(maskRef.current, {
+				clipPath: 'inset(0% 0% 0 -110%)',
+				scrollTrigger: {
+					trigger: wrapperRef.current,
+					start: 'top top',
+					end: 'bottom bottom',
+					scrub: 1,
+				},
+			})
+		})
+
+		// Анимация текста — одинаковая для всех
 		ScrollTrigger.create({
 			trigger: wrapperRef.current,
 			start: 'top+=20% top',
@@ -53,6 +70,8 @@ export default function About() {
 				})
 			},
 		})
+
+		return () => mm.revert()
 	}, [])
 
 	return (

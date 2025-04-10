@@ -4,13 +4,15 @@ import Cta from '@/components/layouts/Cta'
 import Footer from '@/components/layouts/Footer'
 import Header from '@/components/layouts/Header'
 import PageGrid from '@/components/layouts/PageGrid'
+import SeoHead from '@/components/meta/Head'
 import LinesBtn from '@/components/ui/btns/LinesBtn'
 import { clsx } from '@/lib/utils'
 import styles from './development.module.scss'
 
 export default function Development() {
 	return (
-		<div className={styles.page}>
+		<>
+			<SeoHead title='Development' description='development service' />
 			<Header />
 			<main className='main-wrapper'>
 				<section
@@ -170,6 +172,6 @@ export default function Development() {
 				<Cta />
 			</main>
 			<Footer />
-		</div>
+		</>
 	)
 }

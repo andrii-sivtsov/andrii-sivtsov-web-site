@@ -104,7 +104,11 @@
 	max-width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: em(4);
+	gap: em(8);
+
+	@media (max-width: 767px) {
+		gap: em(4);
+	}
 }
 
 .about_cell-caption {
@@ -119,23 +123,5 @@
 .about_cell-text {
 	@media (max-width: 767px) {
 		font-size: em(14);
-	}
-}
-
-// CTA
-
-.cta_wrapper {
-	grid-column: 4 / span 3;
-	max-width: em(470);
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-	gap: em(40);
-
-	@media (max-width: 767px) {
-		grid-column: auto;
-		max-width: none;
-		gap: em(35);
 	}
 }

@@ -1,8 +1,8 @@
+import Cta from '@/components/layouts/Cta'
 import Footer from '@/components/layouts/Footer'
 import Header from '@/components/layouts/Header'
 import PageGrid from '@/components/layouts/PageGrid'
 import SeoHead from '@/components/meta/Head'
-import EnterBtn from '@/components/ui/btns/EnterBtn'
 import LinesBtn from '@/components/ui/btns/LinesBtn'
 import { clsx } from '@/lib/utils'
 import { Project } from '@/types/project'
@@ -95,21 +95,9 @@ const CasePage: React.FC<CasePageProps> = ({ project }) => {
 						</PageGrid>
 					</div>
 				</section>
-				<section className='section-margin-bottom'>
-					<div className='container'>
-						<PageGrid>
-							<div className={styles['cta_wrapper']}>
-								<h2 className='text-32px'>
-									If you want takoqge project, write me, and we voplotim your
-									minds to life.
-								</h2>
-								<EnterBtn text="Let's talk" />
-							</div>
-						</PageGrid>
-					</div>
-				</section>
-				<Footer />
+				<Cta />
 			</main>
+			<Footer />
 		</>
 	)
 }

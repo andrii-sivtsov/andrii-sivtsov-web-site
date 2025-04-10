@@ -1,0 +1,16 @@
+@import '../../styles/mixins.scss';
+
+.card {
+	position: relative;
+	width: 100%;
+	height: em(170);
+	background-color: var(--white);
+	color: var(--black);
+	padding: em(14);
+
+	@media (max-width: 767px) {
+		& p {
+			font-size: em(14);
+		}
+	}
+}

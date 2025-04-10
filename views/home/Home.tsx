@@ -282,14 +282,17 @@ export default function Home({ projects, error }: HomeProps) {
 										'Ai Graphic Design',
 										'Animations',
 									]}
+									href='/services/design'
 								/>
 								<ServiceCard
 									title='Development'
 									services={['Webflow', 'Custom Code', '3D', 'Animations']}
+									href='/services/development'
 								/>
 								<ServiceCard
 									title='Consulting'
 									services={['Design', 'Webflow', 'Animations (Gsap)']}
+									href='/'
 								/>
 							</div>
 						</PageGrid>
